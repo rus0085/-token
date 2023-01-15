@@ -15,8 +15,8 @@ import datetime
 hideBoard = types.ReplyKeyboardRemove()
 
 
-token = '5739105303:AAEbJGQfclfWJC8yrb9GI8FKAs2OYRj_ukk'
-#token = '5136783035:AAFxDeRpBQhLBsKBHfg0DoYhgQIKeTarQzo'
+token = '***************'
+
 
 bot = Bot(token)
 dp = Dispatcher(bot, storage=MemoryStorage())
@@ -118,7 +118,7 @@ async def post(message:types.message.Message, state: FSMContext):
     try:
         id = message["video"]["file_id"]
         destination = fr"/root/rassil/{id}.mp4"
-        #destination = fr"C:\Users\Тимур\PycharmProjects\rassilka_bot\{id}.mp4"
+        #destination = fr"C:\Users\****\PycharmProjects\rassilka_bot\{id}.mp4"
         await bot.download_file_by_id(file_id=id, destination=destination)
         await state.update_data(video=id )
     except:
@@ -126,7 +126,7 @@ async def post(message:types.message.Message, state: FSMContext):
 
     try:
         id = message["photo"][2]["file_id"]
-        #destination = fr"C:\Users\Тимур\PycharmProjects\rassilka_bot\{id}.jpg"
+        #destination = fr"C:\Users\****\PycharmProjects\rassilka_bot\{id}.jpg"
         destination = fr"/root/rassil/{id}.jpg"
         await bot.download_file_by_id(file_id=id, destination=destination)
         await state.update_data(photo=id )
